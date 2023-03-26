@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Khudy"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-03-26 05:35:38 "/>
+        <attribute name="created" value="S2h1ZHk7SElQUE9OT1RFOzIwMjMtMDMtMjI7IjEwOjUwOjIzICI7MjM5MQ=="/>
+        <attribute name="edited" value="S2h1ZHk7SElQUE9OT1RFOzIwMjMtMDMtMjY7IjA1OjM1OjM4ICI7MzsyNTE4"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <output expression="&quot;&#1054;&#1087;&#1080;&#1089;&#1072;&#1085;&#1080;&#1077; &#1079;&#1072;&#1076;&#1072;&#1095;&#1080;. &#1059;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1077; &#1086; &#1089;&#1087;&#1086;&#1089;&#1086;&#1073;&#1077; &#1079;&#1072;&#1087;&#1086;&#1083;&#1085;&#1077;&#1085;&#1080;&#1103; &#1084;&#1072;&#1089;&#1089;&#1080;&#1074;&#1072;.&quot;" newline="True"/>
+            <declare name="source" type="String" array="False" size=""/>
+            <declare name="fromFile" type="String" array="False" size=""/>
+            <assign variable="source" expression="&quot;Parma.txt&quot;"/>
+            <open expression="source" mode="read"/>
+            <read variable="fromFile"/>
+            <declare name="inArray" type="String" array="True" size="0"/>
+            <assign variable="inArray" expression="Split(fromFile)"/>
+            <declare name="minSize, maxSize" type="Integer" array="False" size=""/>
+            <assign variable="minSize" expression="1"/>
+            <assign variable="maxSize" expression="3"/>
+            <declare name="result" type="String" array="False" size=""/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <assign variable="i" expression="0"/>
+            <declare name="size" type="Integer" array="False" size=""/>
+            <assign variable="size" expression="0"/>
+            <while expression="i&lt;Lenght(inArray)">
+                <assign variable="size" expression="Lenght(inArray[i])"/>
+                <if expression="size&gt;=minSize &amp;&amp; size &lt;=maxSize">
+                    <then>
+                        <assign variable="result" expression="result+inArray[i]+&quot; &quot;"/>
+                    </then>
+                    <else/>
+                </if>
+                <assign variable="i" expression="i+1"/>
+            </while>
+            <declare name="outArray" type="String" array="True" size="0"/>
+            <assign variable="inArray" expression="Split(result)"/>
+            <output expression="&quot;&#1048;&#1089;&#1093;&#1086;&#1076;&#1085;&#1099;&#1081; &#1084;&#1072;&#1089;&#1089;&#1080;&#1074;: &quot; &amp; inArray" newline="True"/>
+            <output expression="&quot;&#1056;&#1077;&#1079;&#1091;&#1083;&#1100;&#1090;&#1072;&#1090; &#1086;&#1090;&#1073;&#1086;&#1088;&#1072;: &quot; &amp; outArray" newline="True"/>
+        </body>
+    </function>
+    <function name="CreateArrayByString" type="None" variable="">
+        <parameters>
+            <parameter name="array" type="String" array="True"/>
+            <parameter name="text" type="String" array="False"/>
+            <parameter name="separator" type="String" array="False"/>
+        </parameters>
+        <body>
+            <assign variable="array" expression="Split(text,separator)"/>
+        </body>
+    </function>
+    <function name="GetStringByFile" type="String" variable="output">
+        <parameters>
+            <parameter name="path" type="String" array="False"/>
+        </parameters>
+        <body>
+            <declare name="output" type="String" array="False" size=""/>
+            <open expression="path" mode="read"/>
+            <read variable="output"/>
+        </body>
+    </function>
+</flowgorithm>
